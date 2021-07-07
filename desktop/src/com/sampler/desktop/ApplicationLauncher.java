@@ -31,7 +31,7 @@ public class ApplicationLauncher extends JFrame {
         pack();
         setVisible(true);
 
-        launchSample("");
+        launchSample("com.sampler.MyInputPollingSampler");
     }
 
     public static void main(String[] args) {
