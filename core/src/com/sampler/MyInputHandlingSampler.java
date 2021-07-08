@@ -16,14 +16,12 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class MyInputHandlingSampler implements ApplicationListener, InputProcessor {
 
     private static final Logger logger = new Logger(MyInputHandlingSampler.class.getName(), Logger.DEBUG);
-
+    private static final byte MAX_MESSAGE_COUNT = 15;
+    private final Array<String> messages = new Array<>(MAX_MESSAGE_COUNT);
     private OrthographicCamera camera;
     private Viewport viewport;
     private SpriteBatch batch;
     private BitmapFont font;
-
-    private static final byte MAX_MESSAGE_COUNT = 15;
-    private final Array<String> messages = new Array<>(MAX_MESSAGE_COUNT);
 
     @Override
     public void create() {

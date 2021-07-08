@@ -40,7 +40,15 @@ public class ApplicationLauncher extends JFrame {
 
     public ApplicationLauncher() throws HeadlessException {
         init();
+    }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new ApplicationLauncher();
+            }
+        });
     }
 
     private void init() {
@@ -87,7 +95,7 @@ public class ApplicationLauncher extends JFrame {
         list.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(e.getClickCount() == 2){
+                if (e.getClickCount() == 2) {
                     callSampleLaunching();
                 }
             }
@@ -113,10 +121,10 @@ public class ApplicationLauncher extends JFrame {
 
     }
 
-    private void callSampleLaunching(){
+    private void callSampleLaunching() {
         String sample = (String) list.getSelectedValue();
 
-        if (sample==null || sample.isEmpty()){
+        if (sample == null || sample.isEmpty()) {
             System.out.println("Sample name is empty, can't open it");
             return;
         }
@@ -148,14 +156,5 @@ public class ApplicationLauncher extends JFrame {
         container.add(lwjglAWTCanvas.getCanvas(), BorderLayout.CENTER);
 
         pack();
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ApplicationLauncher();
-            }
-        });
     }
 }
